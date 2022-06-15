@@ -32,9 +32,13 @@ RUN bundle config build.nokogiri --use-system-libraries \
 
 RUN yarn install --production --check-files
 COPY . .
+#RUN bundle exec bin/rails webpacker:compile \
+#    && bundle exec bin/rails assets:precompile \
+#    && rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
 RUN bundle exec bin/rails webpacker:compile \
-    && bundle exec bin/rails assets:precompile \
+    #&& bundle exec bin/rails assets:precompile \
     && rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
+
 
 ############### Build step done ###############
 
