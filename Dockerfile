@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT license.
 
-FROM ruby:2.6.6-alpine AS build-env
+FROM ruby:2.7.3-alpine AS build-env
 
 ARG RAILS_ROOT=/app
 ARG BUILD_PACKAGES="build-base curl-dev git"
@@ -39,7 +39,7 @@ COPY . .
 
 ############### Build step done ###############
 
-FROM ruby:2.6.6-alpine as app
+FROM ruby:2.7.3-alpine as app
 
 ARG RAILS_ROOT=/app
 ARG PACKAGES="tzdata postgresql-client nodejs bash libxml2 libxslt openssh"
