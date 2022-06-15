@@ -31,7 +31,7 @@ RUN bundle config build.nokogiri --use-system-libraries \
     && find vendor/bundle/ruby/*/gems/ -name "*.o" -delete
 
 RUN yarn install --production --check-files
-RUN yarn add @rails/webpacker
+RUN yarn install webpacker
 RUN bundle update webpacker
 
 COPY . .
