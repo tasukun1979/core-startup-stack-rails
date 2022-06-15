@@ -1,0 +1,13 @@
+{
+	"Registrations": [
+		{
+			"Component": {
+				"Type": "git",
+				"git": {
+					"RepositoryUrl": "https://github.com/mhartl/sample_app_6th_ed.git"
+				}
+			},
+			"DevelopmentDependency": false
+		}
+	]
+}
