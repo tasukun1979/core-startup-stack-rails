@@ -35,7 +35,7 @@ RUN yarn add @rails/webpacker
 RUN bundle update webpacker
 
 COPY . .
-RUN bundle exec bin/rails webpacker:compile 
+RUN bundle exec bin/rails webpacker:compile \
    && bundle exec bin/rails assets:precompile \
   && rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
 
