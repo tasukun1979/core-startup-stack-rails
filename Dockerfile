@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT license.
 
-FROM ruby:2.7.3-alpine AS build-env
+FROM ruby:2.6.6-alpine AS build-env
 
 ARG RAILS_ROOT=/app
 ARG BUILD_PACKAGES="build-base curl-dev git"
@@ -34,12 +34,12 @@ RUN yarn install --production --check-files
 
 COPY . .
 RUN bundle exec bin/rails webpacker:compile \
-  && bundle exec bin/rails assets:precompile \
+   && bundle exec bin/rails assets:precompile \
   && rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
 
 ############### Build step done ###############
 
-FROM ruby:2.7.3-alpine as app
+FROM ruby:2.6.6-alpine as app
 
 ARG RAILS_ROOT=/app
 ARG PACKAGES="tzdata postgresql-client nodejs bash libxml2 libxslt openssh"
