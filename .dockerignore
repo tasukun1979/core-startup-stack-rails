@@ -1,0 +1,8 @@
+# Ignore changes to the GitHub Actions Workflows
+.github
+# Don't copy our dockerfile or bakefile
+Dockerfile
+docker-bake.hcl
+.dockerignore
+.git
+infrastructure
