@@ -31,11 +31,12 @@ RUN bundle config build.nokogiri --use-system-libraries \
     && find vendor/bundle/ruby/*/gems/ -name "*.o" -delete
 
 RUN yarn install --production --check-files
+RUN yarn add @rails/webpacker
+RUN bundle update webpacker
+
 COPY . .
-#RUN bundle exec bin/rails webpacker:compile 
-#   && bundle exec bin/rails assets:precompile \
-#  && rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
-RUN bundle exec bin/rails assets:precompile \
+RUN bundle exec bin/rails webpacker:compile 
+   && bundle exec bin/rails assets:precompile \
   && rm -rf node_modules tmp/cache app/assets/images app/assets/stylesheets vendor/assets spec
 
 ############### Build step done ###############
